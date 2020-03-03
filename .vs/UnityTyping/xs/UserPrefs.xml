@@ -1,0 +1,21 @@
+﻿<Properties StartupConfiguration="{40184B64-6F40-4676-5282-01189D1D215B}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/TypingManager.cs">
+    <Files>
+      <File FileName="Assets/Scripts/TypingManager.cs" Line="16" Column="9" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="UnityTyping" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="045df2b4-9cec-4c90-9f40-1eeb72c377ab" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
