@@ -46,9 +46,9 @@ public class TypingManager : MonoBehaviour
             {
                 case 1:
                     typingCount++;
-                    if (listCurrentQuestion[currentQuestionIndex] == '}')
+                    if (listCurrentQuestion[currentQuestionIndex] == '*')
                     {
-                        currentQuestionIndex = 1;
+                        currentQuestionIndex = 0;
                         typingSpeed = 3000 * typingCount / typingTime;
                         Debug.Log("タイピング速度：" + typingSpeed + "kpm");
                         typingTime = 0;
@@ -73,8 +73,8 @@ public class TypingManager : MonoBehaviour
     void UpdateTextMeshProQuestion()
     {
         string question = "<style=Typed>";
-        int i=1;
-        while(listCurrentQuestion[i]!='}')
+        int i = 0;
+        while(listCurrentQuestion[i]!='*')
         {
             
             if(currentQuestionIndex == i){
@@ -97,14 +97,13 @@ public class TypingManager : MonoBehaviour
         currentQuestion = sentence.question;
 
         listCurrentQuestion.Clear();
-        listCurrentQuestion.Add('{');
         char[] characters = currentQuestion.ToCharArray();
         foreach(char character in characters)
         {
             listCurrentQuestion.Add(character);
         }
-        listCurrentQuestion.Add('}');
-        currentQuestionIndex = 1;
+        listCurrentQuestion.Add('*');
+        currentQuestionIndex = 0;
         UpdateTextMeshProQuestion();
         textMeshProTitle.text = currentTitle;
     }
@@ -118,9 +117,19 @@ public class TypingManager : MonoBehaviour
 
     int Type()
     {
+        char prevChar4 = currentQuestionIndex >= 4 ? listCurrentQuestion[currentQuestionIndex - 4] : '\0';
+        char prevChar3 = currentQuestionIndex >= 3 ? listCurrentQuestion[currentQuestionIndex - 3] : '\0';
+        char prevChar2 = currentQuestionIndex >= 2 ? listCurrentQuestion[currentQuestionIndex - 2] : '\0';
+        char prevChar = currentQuestionIndex >= 1 ? listCurrentQuestion[currentQuestionIndex - 1] : '\0';
+        char currentChar = listCurrentQuestion[currentQuestionIndex];
+        char nextChar = listCurrentQuestion[currentQuestionIndex + 1];
+        char nextChar2 = nextChar == '*' ? '*' : listCurrentQuestion[currentQuestionIndex + 2];
+        char nextChar3 = nextChar2 == '*' ? '*' : listCurrentQuestion[currentQuestionIndex + 3];
+        char nextChar4 = nextChar3 == '*' ? '*' : listCurrentQuestion[currentQuestionIndex + 4];
+
         if (Input.GetKeyDown(KeyCode.A))
         {
-            if (listCurrentQuestion[currentQuestionIndex] == 'a')
+            if (currentChar == 'a')
             {
                 currentQuestionIndex++;
                 return 1;
@@ -129,7 +138,7 @@ public class TypingManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.B))
         {
-            if (listCurrentQuestion[currentQuestionIndex] == 'b')
+            if (currentChar == 'b')
             {
                 currentQuestionIndex++;
                 return 1;
@@ -138,8 +147,34 @@ public class TypingManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.C))
         {
-            if (listCurrentQuestion[currentQuestionIndex] == 'c')
+            if (currentChar == 'c')
             {
+                currentQuestionIndex++;
+                return 1;
+            }
+            if (currentChar == 's' && (nextChar == 'i' || nextChar == 'e') && prevChar != 's') 
+            {
+                listCurrentQuestion[currentQuestionIndex] = 'c';
+                currentQuestionIndex++;
+                return 1;
+            }
+            if (currentChar == 'k' && (nextChar == 'a' || nextChar == 'u' || nextChar == 'o') && prevChar != 'k')
+            {
+                listCurrentQuestion[currentQuestionIndex] = 'c';
+                currentQuestionIndex++;
+                return 1;
+            }
+            if (currentChar == 't' && nextChar == 'i' && prevChar != 't')
+            {
+                listCurrentQuestion[currentQuestionIndex] = 'c';
+                listCurrentQuestion.Insert(currentQuestionIndex + 1, 'h');
+                currentQuestionIndex++;
+                return 1;
+            }
+            if (currentChar == 't' && nextChar == 'y' && prevChar != 't')
+            {
+                listCurrentQuestion[currentQuestionIndex] = 'c';
+                listCurrentQuestion[currentQuestionIndex + 1] = 'h';
                 currentQuestionIndex++;
                 return 1;
             }
@@ -147,7 +182,7 @@ public class TypingManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            if (listCurrentQuestion[currentQuestionIndex] == 'd')
+            if (currentChar == 'd')
             {
                 currentQuestionIndex++;
                 return 1;
@@ -156,7 +191,7 @@ public class TypingManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (listCurrentQuestion[currentQuestionIndex] == 'e')
+            if (currentChar == 'e')
             {
                 currentQuestionIndex++;
                 return 1;
@@ -165,8 +200,14 @@ public class TypingManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if (listCurrentQuestion[currentQuestionIndex] == 'f')
+            if (currentChar == 'f')
             {
+                currentQuestionIndex++;
+                return 1;
+            }
+            if (currentChar == 'h' && nextChar == 'u')
+            {
+                listCurrentQuestion[currentQuestionIndex] = 'f';
                 currentQuestionIndex++;
                 return 1;
             }
@@ -174,7 +215,7 @@ public class TypingManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
-            if (listCurrentQuestion[currentQuestionIndex] == 'g')
+            if (currentChar == 'g')
             {
                 currentQuestionIndex++;
                 return 1;
@@ -183,8 +224,20 @@ public class TypingManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.H))
         {
-            if (listCurrentQuestion[currentQuestionIndex] == 'h')
+            if (currentChar == 'h')
             {
+                currentQuestionIndex++;
+                return 1;
+            }
+            if (currentChar == 'i' && prevChar == 's')
+            {
+                listCurrentQuestion.Insert(currentQuestionIndex, 'h');
+                currentQuestionIndex++;
+                return 1;
+            }
+            if (currentChar == 'y' && prevChar == 's')
+            {
+                listCurrentQuestion[currentQuestionIndex] = 'h';
                 currentQuestionIndex++;
                 return 1;
             }
@@ -203,6 +256,12 @@ public class TypingManager : MonoBehaviour
         {
             if (listCurrentQuestion[currentQuestionIndex] == 'j')
             {
+                currentQuestionIndex++;
+                return 1;
+            }
+            if (currentChar == 'z' && nextChar == 'i' && prevChar != 'z')
+            {
+                listCurrentQuestion[currentQuestionIndex] = 'j';
                 currentQuestionIndex++;
                 return 1;
             }
@@ -237,8 +296,14 @@ public class TypingManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.N))
         {
-            if (listCurrentQuestion[currentQuestionIndex] == 'n')
+            if (currentChar == 'n')
             {
+                currentQuestionIndex++;
+                return 1;
+            }
+            if (prevChar == 'n' && prevChar2 != 'n' && currentChar != 'a' && currentChar != 'i' && currentChar != 'u' && currentChar != 'e' && currentChar != 'o' && currentChar != 'y')
+            {
+                listCurrentQuestion.Insert(currentQuestionIndex, 'n');
                 currentQuestionIndex++;
                 return 1;
             }
@@ -264,8 +329,14 @@ public class TypingManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (listCurrentQuestion[currentQuestionIndex] == 'q')
+            if (currentChar == 'q')
             {
+                currentQuestionIndex++;
+                return 1;
+            }
+            if (currentChar == 'k' && nextChar == 'u' && prevChar != 'k')
+            {
+                listCurrentQuestion[currentQuestionIndex] = 'q';
                 currentQuestionIndex++;
                 return 1;
             }
@@ -282,8 +353,14 @@ public class TypingManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            if (listCurrentQuestion[currentQuestionIndex] == 's')
+            if (currentChar == 's')
             {
+                currentQuestionIndex++;
+                return 1;
+            }
+            if (currentChar == 'u' && prevChar == 't')
+            {
+                listCurrentQuestion.Insert(currentQuestionIndex, 's');
                 currentQuestionIndex++;
                 return 1;
             }
@@ -343,7 +420,6 @@ public class TypingManager : MonoBehaviour
             }
             if(listCurrentQuestion[currentQuestionIndex]== 'i') //「い」のタイピングか？
             {
-                char prevChar = listCurrentQuestion[currentQuestionIndex - 1];
                 if(prevChar == '{' || prevChar == 'a' || prevChar == 'i' || prevChar == 'u' || prevChar == 'e' || prevChar == 'o')
                 {
                     listCurrentQuestion.Insert(currentQuestionIndex, 'y');
@@ -378,6 +454,14 @@ public class TypingManager : MonoBehaviour
                 return 1;
             }
             return 2;
+        }
+        if (Input.GetKeyDown(KeyCode.Minus))
+        {
+            if (currentChar == '-')
+            {
+                currentQuestionIndex++;
+                return 1;
+            }
         }
         return 0;
 

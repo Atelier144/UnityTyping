@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{40184B64-6F40-4676-5282-01189D1D215B}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/TypingManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/TypingManager.cs" Line="16" Column="9" />
+      <File FileName="Assets/Scripts/TypingManager.cs" Line="304" Column="185" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,7 +13,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="045df2b4-9cec-4c90-9f40-1eeb72c377ab" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="680b8f52-058f-4310-b985-fcf334c25431" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

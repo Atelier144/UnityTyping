@@ -227,6 +227,14 @@ MonoBehaviour:
     question: nnanninnunnennonn
   - title: "\u304B\u3093\u3055\u3093\u305F\u3093\u306A\u3093\u306F\u3093\u307E\u3093\u3084\u3093\u3089\u3093"
     question: kansantannnanhanmannyanran
+  - title: "\u4E03\u798F\u795E"
+    question: sitihukuzinn
+  - title: "\u65B0\u6625\u30B7\u30E3\u30F3\u30BD\u30F3\u30B7\u30E7\u30FC"
+    question: sinsyunsyansonsyo-
+  - title: "\u306A\u306B\u306C\u306D\u306E\u306F\u3072\u3075\u3078\u307B"
+    question: naninunenohahihuheho
+  - title: "\u8ABF\u7406\u5B9F\u7FD2"
+    question: tyourizissyuu
 --- !u!4 &330228154
 Transform:
   m_ObjectHideFlags: 0
