@@ -178,6 +178,22 @@ public class TypingManager : MonoBehaviour
                 currentQuestionIndex++;
                 return 1;
             }
+            if (currentChar == 't' && nextChar == 't' && nextChar2 == 'i')
+            {
+                listCurrentQuestion[currentQuestionIndex] = 'c';
+                listCurrentQuestion[currentQuestionIndex + 1] = 'c';
+                listCurrentQuestion.Insert(currentQuestionIndex + 2, 'h');
+                currentQuestionIndex++;
+                return 1;
+            }
+            if (currentChar == 't' && nextChar == 't' && nextChar2 == 'y')
+            {
+                listCurrentQuestion[currentQuestionIndex] = 'c';
+                listCurrentQuestion[currentQuestionIndex + 1] = 'c';
+                listCurrentQuestion[currentQuestionIndex + 2] = 'h';
+                currentQuestionIndex++;
+                return 1;
+            }
             return 2;
         }
         if (Input.GetKeyDown(KeyCode.D))

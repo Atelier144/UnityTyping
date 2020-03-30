@@ -226,7 +226,7 @@ MonoBehaviour:
   - title: "\u3093\u3042\u3093\u3044\u3093\u3046\u3093\u3048\u3093\u304A\u3093"
     question: nnanninnunnennonn
   - title: "\u304B\u3093\u3055\u3093\u305F\u3093\u306A\u3093\u306F\u3093\u307E\u3093\u3084\u3093\u3089\u3093"
-    question: kansantannnanhanmannyanran
+    question: kansantannnanhanmannyanrann
   - title: "\u4E03\u798F\u795E"
     question: sitihukuzinn
   - title: "\u65B0\u6625\u30B7\u30E3\u30F3\u30BD\u30F3\u30B7\u30E7\u30FC"
@@ -235,6 +235,12 @@ MonoBehaviour:
     question: naninunenohahihuheho
   - title: "\u8ABF\u7406\u5B9F\u7FD2"
     question: tyourizissyuu
+  - title: "\u30E2\u30C3\u30C4\u30A1\u30EC\u30E9\u30C1\u30FC\u30BA\u4E00\u5146\u5186"
+    question: mottsarerati-zuittyouenn
+  - title: "\u5409\u5146\u30BF\u30C3\u30C1\u30D1\u30CD\u30EB"
+    question: kittyoutattipaneru
+  - title: "\u30A4\u30C3\u30C4\u30A1\u30E2\u30C3\u30C4\u30A1\u30EC\u30E9\u30D7\u30EC\u30C3\u30C4\u30A7\u30EB"
+    question: ittsamottsarerapurettseru
 --- !u!4 &330228154
 Transform:
   m_ObjectHideFlags: 0
